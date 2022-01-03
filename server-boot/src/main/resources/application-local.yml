@@ -1,0 +1,27 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+
+kakao:
+  token-uri: https://kauth.kakao.com/oauth/token
+  user-info-uri: https://kapi.kakao.com/v2/user/me
+  client-id: 55c7954fe4759f901dd1dd6f421575d6
+  client:secret: rnw7a1JwN9m2jcR850WUWYTDvD9dQMdo
+  redirect-uri: http://localhost:8080/kakao-sign-in/callback
+
+jwt:
+  secret: test-secret
+  expiration: 1480000
+
+## admin
+admin:
+  web:
+    origins: http://localhost:9527
+  jwt:
+    secret: winikim-admin-secret
+    expiration: 148000
+  default:
+    username: admin
+    password: winikim1@
