@@ -22,7 +22,7 @@ repositories {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
@@ -64,7 +64,7 @@ subprojects {
             enabled = true
         }
         compileKotlin {
-            kotlinOptions.jvmTarget = "1.8"
+            kotlinOptions.jvmTarget = "11"
             kotlinOptions.freeCompilerArgs =
                 listOf(
                     "-Xopt-in=kotlin.RequiresOptIn",
@@ -73,7 +73,7 @@ subprojects {
         }
 
         compileTestKotlin {
-            kotlinOptions.jvmTarget = "1.8"
+            kotlinOptions.jvmTarget = "11"
         }
     }
 
@@ -101,48 +101,3 @@ subprojects {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
 }
-
-project(":server-boot") {
-    dependencies {
-        implementation("org.springframework.boot:spring-boot-starter-web")
-        api(project(":presentation"))
-    }
-}
-
-project(":presentation") {
-    dependencies {
-        implementation("org.springframework.boot:spring-boot-starter-web")
-        api("org.springframework.boot:spring-boot-starter-security")
-        implementation ("io.jsonwebtoken:jjwt:0.9.1")
-        api(project(":application"))
-    }
-}
-
-project(":application") {
-    dependencies {
-        implementation("org.springframework.boot:spring-boot-starter-web")
-        implementation("org.springframework.boot:spring-boot-starter-security")
-        implementation ("io.jsonwebtoken:jjwt:0.9.1")
-        api(project(":domain"))
-        api(project(":infrastructure"))
-    }
-}
-
-project(":domain") {
-    dependencies {
-        api("org.springframework.boot:spring-boot-starter-data-jpa")
-    }
-}
-
-project(":infrastructure") {
-    dependencies {
-        runtimeOnly("com.h2database:h2")
-        implementation("io.ktor:ktor-client-apache:1.5.3")
-        implementation("io.ktor:ktor-client-json-jvm:1.5.3")
-        implementation("io.ktor:ktor-client-jackson:1.5.3")
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-        api(project(":domain"))
-
-    }
-}
-
