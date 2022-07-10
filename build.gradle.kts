@@ -92,12 +92,7 @@ subprojects {
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        implementation("org.apache.logging.log4j:log4j-api:2.17.1")
-        implementation("org.apache.logging.log4j:log4j-core:2.17.1")
-        implementation("org.apache.logging.log4j:log4j-jul:2.17.1")
-        implementation("org.apache.logging.log4j:log4j-sl4j-impl:2.17.1")
-        implementation("org.slf4j:slf4j-api:1.7.32")
-        implementation("org.slf4j:jul-to-slf4j:1.7.32")
+        implementation("org.springframework.boot:spring-boot-starter-log4j2")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
 }
