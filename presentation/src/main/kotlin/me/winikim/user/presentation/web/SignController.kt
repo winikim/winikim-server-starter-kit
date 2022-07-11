@@ -28,7 +28,7 @@ class SignController(
 
     @GetMapping("kakao-sign-in")
     fun redirectTokakaoSignPageForTest(): ResponseEntity<*> {
-        val redirectUrl = "https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}k&response_type=code"
+        val redirectUrl = "https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code"
         val uri = URI(redirectUrl)
         val headers = HttpHeaders()
         headers.location = uri
